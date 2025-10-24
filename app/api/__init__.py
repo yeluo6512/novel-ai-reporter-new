@@ -2,9 +2,9 @@
 
 from fastapi import FastAPI
 
-from .routes import health
+from .routes import health, splitter
 
-_ROUTERS = (health.router,)
+_ROUTERS = (health.router, splitter.router)
 
 
 def register_routers(app: FastAPI) -> None:
