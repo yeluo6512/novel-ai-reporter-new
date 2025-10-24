@@ -10,6 +10,8 @@ from typing import Any
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from .ai.config import AIAdapterSettings
+
 
 def _default_base_dir() -> Path:
     """Determine a sensible default base directory for the application."""
@@ -43,6 +45,7 @@ class Settings(BaseSettings):
         env_prefix="APP_",
         env_file=(".env",),
         extra="ignore",
+        env_nested_delimiter="__",
     )
 
     app_name: str = Field(default="CTO Agents Backend")
@@ -58,6 +61,10 @@ class Settings(BaseSettings):
         default=None,
         validation_alias=AliasChoices("APP_PROVIDER_BASE_URL", "PROVIDER_BASE_URL"),
         description="Base URL for interacting with external provider APIs.",
+    )
+    ai: AIAdapterSettings = Field(
+        default_factory=AIAdapterSettings,
+        description="Configuration for AI provider adapters.",
     )
 
     allowed_origins: list[str] = Field(
