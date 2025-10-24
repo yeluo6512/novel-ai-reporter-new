@@ -3,8 +3,10 @@ from typing import Dict
 from fastapi import FastAPI
 
 from .agents import ensure_agents_file_exists, load_agents_document
+from .routers import projects_router
 
 app = FastAPI(title="项目后端", version="0.1.0")
+app.include_router(projects_router)
 
 
 @app.on_event("startup")
