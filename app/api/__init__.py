@@ -2,9 +2,9 @@
 
 from fastapi import FastAPI
 
-from .routes import health
+from .routes import health, orchestration
 
-_ROUTERS = (health.router,)
+_ROUTERS = (health.router, orchestration.router)
 
 
 def register_routers(app: FastAPI) -> None:
