@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      target: runtime
+      args:
+        APP_USER: "${APP_USER:-appuser}"
+        APP_UID: "${APP_UID:-1000}"
+        APP_GID: "${APP_GID:-1000}"
+    image: app-api:latest
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - STATIC_ROOT=/app/static
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    restart: unless-stopped
