@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.env
+.venv
+*.env
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+backend/.venv/
+venv/
+.env/
+
+# IDE & Editors
+*.swp
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# pytest cache
+.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
