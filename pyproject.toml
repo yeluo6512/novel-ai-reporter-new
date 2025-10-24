@@ -15,6 +15,7 @@ dependencies = [
     "pydantic>=2.0",
     "pydantic-settings>=2.2",
     "python-dotenv>=1.0",
+    "httpx>=0.24",
 ]
 
 [project.optional-dependencies]
