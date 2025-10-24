@@ -2,9 +2,13 @@
 
 from fastapi import FastAPI
 
-from .routes import health
+from .routes import health, projects, settings
 
-_ROUTERS = (health.router,)
+_ROUTERS = (
+    health.router,
+    projects.router,
+    settings.router,
+)
 
 
 def register_routers(app: FastAPI) -> None:
@@ -12,5 +16,6 @@ def register_routers(app: FastAPI) -> None:
 
     for router in _ROUTERS:
         app.include_router(router)
+
 
 __all__ = ("register_routers",)

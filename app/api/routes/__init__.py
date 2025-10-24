@@ -1,5 +1,5 @@
 """API route modules."""
 
-from . import health
+from . import health, projects, settings
 
-__all__ = ("health",)
+__all__ = ("health", "projects", "settings")
